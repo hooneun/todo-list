@@ -1,1 +1,6 @@
-console.log("hello world")
+
+const app = async() => {
+
+}
+
+document.addEventListener("DOMContentLoaded", app)
