@@ -6,7 +6,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-func makeHash(s *string) error {
+func MakeHash(s *string) error {
 	if s == nil {
 		return errors.New("Reference provided for hashing string is nil")
 	}
@@ -21,6 +21,6 @@ func makeHash(s *string) error {
 	return nil
 }
 
-func checkHash(hash, s string) bool {
+func CheckHash(hash, s string) bool {
 	return bcrypt.CompareHashAndPassword([]byte(hash), []byte(s)) == nil
 }

@@ -2,6 +2,6 @@ package models
 
 import "testing"
 
-func TestUserCreate(t *testing.T) {
+func TestAddUser(t *testing.T) {
 
 }

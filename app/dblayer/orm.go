@@ -1,6 +1,8 @@
 package dblayer
 
 import (
+	"github.com/hooneun/todo-list/app/helper"
+	"github.com/hooneun/todo-list/app/models"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -17,4 +19,13 @@ func NewORM() (*ORM, error) {
 	return &ORM{
 		DB: db,
 	}, err
+}
+
+// AddUser create usre
+func (db *ORM) AddUser(user models.User) (models.User, error) {
+	helper.MakeHash(&user.Password)
+	err := db.Create(&user).Error
+	user.Password = ""
+
+	return user, err
 }
